@@ -39,9 +39,9 @@ public interface DoorManager {
     @NotNull CompletableFuture<ToggleOutcome> toggle(@NotNull Door door, @NotNull ToggleOptions options);
 
     /**
-     * Creates a door programmatically with the same validations as the guided creation (shape, blocks,
-     * overlaps, protection hooks, {@code DoorCreateEvent}). Fails exceptionally with
-     * {@link IllegalArgumentException} carrying the reason.
+     * Creates a door programmatically with the shape, block and overlap validations of the guided creation, and
+     * fires {@code DoorCreateEvent}. As a server-side action it skips permissions, player limits and protection
+     * hooks (they need a player). Fails exceptionally with {@link IllegalArgumentException} carrying the reason.
      */
     @NotNull CompletableFuture<Door> create(@NotNull DoorSpec spec);
 

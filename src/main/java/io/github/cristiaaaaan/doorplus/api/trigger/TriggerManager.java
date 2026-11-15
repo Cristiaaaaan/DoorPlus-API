@@ -30,8 +30,9 @@ public interface TriggerManager {
     @NotNull Collection<Trigger> at(@NotNull Entity entity);
 
     /**
-     * Adds a trigger. Validates distance, limits, duplicates and fires {@code TriggerAddEvent}. Fails
-     * exceptionally with {@link IllegalArgumentException} carrying the reason.
+     * Adds a trigger. Validates the world, the triggers-per-door limit of the config and duplicates, and fires
+     * {@code TriggerAddEvent}. As a server-side action it skips permissions, roles, the distance limit and
+     * protection hooks. Fails exceptionally with {@link IllegalArgumentException} carrying the reason.
      */
     @NotNull CompletableFuture<Trigger> add(@NotNull TriggerSpec spec);
 

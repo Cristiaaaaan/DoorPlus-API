@@ -10,8 +10,9 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * Live view of a door. Getters reflect the current plugin state. Setters apply the change, persist it and
- * fire the corresponding event; they must be called from the main thread.
+ * Live view of a door. Getters reflect the current plugin state. Setters apply the change and persist it; they
+ * must be called from the main thread. Only {@link #setPrivacy} fires an event ({@code DoorPrivacyChangeEvent},
+ * cancellable).
  */
 public interface Door {
 
